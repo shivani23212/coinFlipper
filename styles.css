@@ -1,0 +1,100 @@
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    top: 0;
+    z-index: -1;
+}
+
+.left {
+    left: 0;
+    background-color: #7c12e6;
+}
+
+.right {
+    right: 0;
+    background-color: white;
+}
+
+#coin-box {
+    height: 350px;
+    width: 450px;
+   
+    background-color: whitesmoke;
+    border-radius: 5%;
+    box-shadow: 0 10px 6px -6px #777;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#flip-btn {
+    padding: 10px 15px;
+    font-size: 20px;
+    margin-left: 60px;
+    margin-top: 25px; 
+}
+
+#reset-btn {
+    padding: 10px 15px;
+    font-size: 20px;
+    margin-left: 130px;
+    margin-top: 25px; 
+}
+
+
+.coin { /* the box containing the animation itself*/
+    width: 12rem;
+    height: 12rem;
+    margin-left: 130px;
+    margin-top: 30px;
+    transform-style: preserve-3d;
+}
+
+.coin div { /* all div elements in coin class - heads and tails*/
+    width: 100%;
+    height: 100%;
+    border: 3px solid black;
+    border-radius: 50%;
+    backface-visibility: hidden; /* hides back of element when transformed - so we don't see back of same div */
+    position: absolute; /* positions both head and tail divs in same place*/
+}
+
+.coin .heads {
+    background: skyblue;
+}
+
+.coin .tails {
+    background: orange;
+    transform: rotateY(-180deg); /* to apply backface-visibility: hidden */
+}
+
+.animate-heads {
+    animation: flipHeads 3s;
+    animation-fill-mode: forwards; /* why do we need this here */
+}
+
+@keyframes flipHeads {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(1080deg);
+    }
+}
+
+.animate-tails {
+    animation: flipTails 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes flipTails {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(1260deg);
+    }
+}
